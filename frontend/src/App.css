@@ -1,0 +1,115 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+.main-content {
+  max-width: 1200px; /* Задай максимальную ширину для контента */
+  margin-left: 300px;  /* Автоматический отступ слева */
+  margin-right: auto; /* Автоматический отступ справа */
+  padding: 20px;      /* Оставляем внутренние отступы */
+  /* background-color: #fff; */ /* Можно добавить фон, чтобы видеть границы блока */
+  /* border-radius: 5px; */ /* Скругление углов */
+  /* box-shadow: 0 1px 3px rgba(0,0,0,0.1); */ /* Небольшая тень */
+}
+
+/* Стили для таблицы банкоматов можно добавить сюда или в отдельный файл/модуль */
+.atmTable { /* Пример класса для таблицы в ATMsPage.tsx */
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.atmTable th, .atmTable td {
+    border: 1px solid #ddd;
+    padding: 8px 12px;
+    text-align: left;
+}
+
+.atmTable th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+.atmTable tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.atmTable tbody tr:hover {
+    background-color: #e9e9e9;
+}
+
+body { /* Или селектор для .app-container, если он у тебя есть */
+  display: flex;
+  flex-direction: column; /* Элементы (Navbar, main) будут друг под другом */
+  align-items: center;    /* Центрирование по горизонтали */
+  min-height: 100vh;    /* Чтобы занимало весь экран по высоте */
+  margin: 0;
+  font-family: sans-serif;
+  background-color: #f4f7f9;
+}
+
+/* Стилизуем Navbar, чтобы он растягивался */
+/* Предположим, у Navbar есть класс или мы стилизуем тег nav */
+nav { 
+  width: 100%; /* Растягиваем навбар */
+  background-color: #fff; /* Пример фона */
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  padding: 10px 0; /* Вертикальные отступы */
+  margin-bottom: 20px;
+  display: flex; /* Центрируем содержимое навбара */
+  justify-content: center; 
+}
+
+nav a, nav button { /* Стили для ссылок/кнопок в навбаре */
+ margin: 0 15px;
+ /* ... другие стили ... */
+}
+
+.main-content {
+width: 100%; /* Занимает доступную ширину */
+max-width: 1200px; /* Но ограничиваем максимальную ширину */
+padding: 20px;
+box-sizing: border-box; /* Учитываем padding в ширине */
+/* background-color: #fff; */ /* Фон по желанию */
+/* border-radius: 5px; */
+/* box-shadow: 0 1px 3px rgba(0,0,0,0.1); */
+}
+/* Стили для таблицы .atmTable остаются такими же, как в Способе 1 */

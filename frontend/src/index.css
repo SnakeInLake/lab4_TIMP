@@ -1,0 +1,188 @@
+/* src/index.css */
+
+/* :root определяет переменные глобально */
+:root {
+  /* --- Цвета для СВЕТЛОЙ темы --- */
+  --bg-color: #ffffff;          /* Основной фон страницы */
+  --text-color: #212529;        /* Основной цвет текста */
+  --text-color-muted: #6c757d;  /* Приглушенный текст */
+  --link-color: #007bff;         /* Цвет ссылок */
+  --link-hover-color: #0056b3;   /* Цвет ссылок при наведении */
+  
+  --button-bg: #007bff;          /* Фон кнопок */
+  --button-text: #ffffff;       /* Текст на кнопках */
+  --button-hover-bg: #0056b3;    /* Фон кнопок при наведении */
+  --button-disabled-bg: #cccccc;/* Фон заблокированных кнопок */
+  --button-disabled-text: #6c757d; /* Текст заблокированных кнопок */
+
+  --button-small-bg: #28a745;      /* Фон маленьких кнопок */
+  --button-small-hover-bg: #218838;
+
+  --navbar-bg: #ffffff;         /* Фон навбара */
+  --navbar-border: #e0e0e0;     /* Граница под навбаром */
+  
+  --form-bg: #ffffff;           /* Фон форм */
+  --form-border: #ced4da;       /* Граница полей ввода */
+  --form-focus-border: #80bdff; /* Граница полей при фокусе */
+  --form-focus-shadow: rgba(0, 123, 255, 0.25); /* Тень при фокусе */
+  --form-label-color: #495057;  /* Цвет лейблов */
+
+  --table-bg: #ffffff;          /* Фон таблицы */
+  --table-border: #dee2e6;      /* Границы ячеек */
+  --table-header-bg: #f8f9fa;   /* Фон заголовков таблицы */
+  --table-header-text: #495057; /* Текст заголовков */
+  --table-row-even-bg: #f9f9f9; /* Фон четных строк */
+  
+  --error-text: #dc3545;        /* Цвет текста ошибок */
+  --alert-yes-text: #dc3545;    /* Цвет для "ДА" у алерта (красный) */
+  --alert-no-text: var(--text-color-muted); /* Приглушенный для "Нет" */
+  --log-level-error: orange;    /* Цвет для уровня ERROR */
+  --log-level-critical: red;    /* Цвет для уровня CRITICAL */
+
+  /* Шрифты и другое */
+  --font-family-sans-serif: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  --base-font-size: 1rem;
+  --base-line-height: 1.5;
+}
+/* src/index.css */
+
+/* ... переменные :root для светлой темы выше ... */
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* --- Переопределяем цвета для ТЕМНОЙ темы --- */
+    --bg-color: #212529;
+    --text-color: #dee2e6; /* Светлее для лучшего контраста */
+    --text-color-muted: #adb5bd;
+    --link-color: #6cb2f7;
+    --link-hover-color: #82c0ff;
+    
+    --button-bg: #007bff; /* Можно оставить синий или сделать темнее */
+    --button-text: #ffffff;
+    --button-hover-bg: #0056b3;
+    --button-disabled-bg: #495057;
+    --button-disabled-text: #adb5bd;
+
+    --button-small-bg: #28a745;
+    --button-small-hover-bg: #218838;
+
+    --navbar-bg: #343a40;
+    --navbar-border: #495057;
+    
+    --form-bg: #343a40;
+    --form-border: #6c757d;
+    --form-focus-border: #80bdff;
+    --form-focus-shadow: rgba(0, 123, 255, 0.25);
+    --form-label-color: #ced4da;
+
+    --table-bg: #343a40;
+    --table-border: #495057;
+    --table-header-bg: #454c52;
+    --table-header-text: #f8f9fa;
+    --text-color: #e9ecef; /* Сделаем текст еще чуть светлее */
+    --table-bg: #2c3034; /* Фон нечетных строк (темнее) */
+
+    --table-border: #495057; 
+    --table-header-bg: #3a4147; /* Фон заголовка */
+    --table-header-text: #f8f9fa; /* Текст заголовка */
+    
+    --error-text: #f17c88; /* Более светлый красный */
+    --alert-yes-text: #f17c88;
+    --alert-no-text: var(--text-color-muted);
+    --log-level-error: orange; /* Можно оставить или сделать ярче */
+    --log-level-critical: #ff6b6b; /* Ярче красный */
+  }
+  .data-table td {
+    color: var(--text-color);
+    border-color: var(--table-border);
+    /* background-color можно задать здесь, если нужен отличный от body */
+ }
+ .data-table tbody tr:hover {
+    background-color: var(--table-row-hover-bg); /* Оставляем подсветку при наведении */
+ }
+}
+body {
+  margin: 0;
+  font-family: var(--font-family-sans-serif);
+  font-size: var(--base-font-size);
+  line-height: var(--base-line-height);
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  /* Убираем или адаптируем display: flex из body, если он не нужен глобально */
+  /* display: flex; */
+  /* place-items: center; */
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+a {
+  font-weight: 500;
+  color: var(--link-color);
+  text-decoration: inherit;
+}
+a:hover {
+  color: var(--link-hover-color);
+}
+
+/* Базовые стили для кнопок (можно переопределить в модулях) */
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: var(--button-bg);
+  color: var(--button-text);
+  cursor: pointer;
+  transition: border-color 0.25s, background-color 0.25s;
+}
+button:hover:not(:disabled) {
+  /* Убрал border-color, можно оставить, если хочешь */
+  background-color: var(--button-hover-bg);
+}
+ button:disabled {
+  background-color: var(--button-disabled-bg);
+  color: var(--button-disabled-text);
+  cursor: not-allowed;
+ }
+button:focus,
+button:focus-visible {
+  /* Можно использовать переменные и для outline */
+  outline: 4px auto -webkit-focus-ring-color; 
+}
+
+/* Стили для общего макета, если используешь .main-content */
+ .main-content {
+  width: 100%; 
+  max-width: 1200px; 
+  margin-left: auto;  
+  margin-right: auto; 
+  padding: 20px;      
+  box-sizing: border-box; 
+}
+
+/* Стили для Navbar (если используешь nav тег или класс) */
+nav {
+  width: 100%; 
+  background-color: var(--navbar-bg); 
+  border-bottom: 1px solid var(--navbar-border);
+  padding: 10px 0; 
+  margin-bottom: 20px;
+  display: flex; 
+  justify-content: center; 
+  align-items: center; /* Добавил выравнивание по вертикали */
+}
+ nav a, nav button, nav span {
+    margin: 0 15px;
+    color: var(--text-color); /* Цвет текста в навбаре */
+    font-size: 1rem;
+ }
+ nav button { /* Стили для кнопки Выход в навбаре */
+    background-color: var(--button-bg); /* Или другой цвет */
+    color: var(--button-text);
+    padding: 0.4em 0.8em; /* Поменьше паддинг */
+ }
+ nav a {
+    color: var(--link-color);
+ }

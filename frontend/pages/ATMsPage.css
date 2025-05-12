@@ -1,0 +1,107 @@
+/* src/pages/ATMsPage.css */
+.atmTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  .atmTable th,
+  .atmTable td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    font-size: 0.9rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  }
+  
+  .data-table th,
+  .data-table td {
+    border: 1px solid #ddd;
+    padding: 10px 12px;
+    text-align: left;
+    vertical-align: top; /* Удобно для длинных сообщений */
+  }
+  
+  .data-table th {
+    background-color: #f8f9fa;
+    font-weight: bold;
+    color: #333;
+  }
+  
+
+  
+
+  
+  /* Стили для маленькой кнопки */
+  .button-small {
+    padding: 4px 8px;
+    font-size: 0.8rem;
+    background-color: #28a745; /* Зеленый */
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  .button-small:hover:not(:disabled) {
+    background-color: #218838;
+  }
+  
+  .button-small:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+  }
+  .data-table {
+    /* ... */
+    background-color: var(--table-bg);
+  }
+  .data-table th,
+  .data-table td {
+    border: 1px solid var(--table-border);
+    padding: 10px 12px;
+    text-align: left;
+    vertical-align: top;
+    color: var(--text-color); /* Основной цвет текста для ячеек */
+  }
+  .data-table th {
+    background-color: var(--table-header-bg);
+    font-weight: bold;
+    color: var(--table-header-text);
+  }
+
+  
+  /* Дополнительно для алертов и уровней, если нужно */
+  .alertTextYes { /* Класс для ячейки с алертом "ДА" */
+      color: var(--alert-yes-text);
+      font-weight: bold;
+  }
+   .logLevelError { /* Класс для ячейки с уровнем ERROR */
+      color: var(--log-level-error);
+      font-weight: bold;
+   }
+    .logLevelCritical { /* Класс для ячейки с уровнем CRITICAL */
+      color: var(--log-level-critical);
+      font-weight: bold;
+   }
+  
+  /* Стили для маленькой кнопки */
+  .button-small {
+    /* ... */
+    background-color: var(--button-small-bg);
+    color: var(--button-text);
+    /* ... */
+  }
+  .button-small:hover:not(:disabled) {
+    background-color: var(--button-small-hover-bg);
+  }
+  .button-small:disabled {
+    background-color: var(--button-disabled-bg);
+    /* ... */
+  }

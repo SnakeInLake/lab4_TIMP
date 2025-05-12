@@ -1,0 +1,14 @@
+{
+  "files": [],
+  "references": [
+    { "path": "./tsconfig.app.json" },
+    { "path": "./tsconfig.node.json" }
+  ],
+  "compilerOptions": {
+    // ... другие опции
+    "jsx": "react-jsx", // Убедись, что эта опция есть и установлена так
+    // ... другие опции
+    "lib": ["DOM", "DOM.Iterable", "ESNext"], // Убедись, что DOM есть в lib
+    // ...
+  }
+}

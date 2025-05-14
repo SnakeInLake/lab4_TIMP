@@ -1,62 +1,56 @@
 # .github/workflows/ci.yml
 
-name: Run Tests # Название твоего workflow, отображается в GitHub Actions
+name: Run Tests 
 
-# Триггеры для запуска workflow
 on:
-  push: # Запускать при каждом push в любую ветку
+  push: 
     branches:
-      - main # Например, только для ветки main
-      - develop # Или для develop
-      # Можно указать '*' для всех веток
-  pull_request: # Запускать при создании или обновлении Pull Request
+      - main 
+  pull_request: 
     branches:
-      - main # Например, для PR в main
+      - main 
 
-jobs: # Список задач, которые будут выполняться
-  test-backend: # Название задачи для тестирования бэкенда
+jobs: 
+  test-backend: 
     name: Test Backend (Python)
-    runs-on: ubuntu-latest # На какой операционной системе запускать (обычно ubuntu-latest)
+    runs-on: ubuntu-latest 
 
-    steps: # Последовательность шагов в задаче
-      - name: Checkout code # Шаг 1: Получаем код из репозитория
+    steps: 
+      - name: Checkout code 
         uses: actions/checkout@v3
 
-      - name: Set up Python # Шаг 2: Устанавливаем нужную версию Python
+      - name: Set up Python 
         uses: actions/setup-python@v3
         with:
-          python-version: '3.9' # Укажи свою версию Python
+          python-version: '3.9' 
 
-      - name: Install dependencies (Backend) # Шаг 3: Устанавливаем зависимости бэкенда
+      - name: Install dependencies (Backend) 
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt # Если у тебя есть requirements.txt для бэкенда
 
-      - name: Run Pytest # Шаг 4: Запускаем тесты бэкенда
-        run: pytest # Команда для запуска pytest (убедись, что pytest есть в requirements.txt)
+      - name: Run Pytest 
+        run: pytest 
 
-  test-frontend: # Название задачи для тестирования фронтенда (если есть тесты)
+  test-frontend: 
     name: Test Frontend (React)
     runs-on: ubuntu-latest
-    # if: false # Можно закомментировать или удалить if, если тесты фронтенда нужны
 
-    defaults: # Указываем рабочую директорию для всех шагов этой задачи
+    defaults: 
       run:
-        working-directory: ./frontend # Путь к папке с фронтендом
+        working-directory: ./frontend 
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Set up Node.js # Устанавливаем Node.js
+      - name: Set up Node.js 
         uses: actions/setup-node@v3
         with:
-          node-version: '18' # Укажи свою версию Node.js
+          node-version: '18' 
 
-      - name: Install dependencies (Frontend) # Устанавливаем зависимости фронтенда
-        run: npm install # или yarn install
+      - name: Install dependencies (Frontend) 
+        run: npm install 
 
-      - name: Run Frontend Tests # Запускаем тесты фронтенда
-        run: npm test # или yarn test
-        # env:
-        #   CI: true # Некоторые тестовые раннеры требуют эту переменную в CI
+      - name: Run Frontend Tests 
+        run: npm test 

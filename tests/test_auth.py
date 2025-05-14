@@ -40,7 +40,7 @@ def test_user_signup_duplicate_username_or_email(client: TestClient):  # Пер�
     response = client.post("/api/v1/auth/signup", json=test_user_data)  # Повторная попытка
     assert response.status_code == 400, response.text
     detail = response.json()["detail"]
-    assert "already registered" in detail or "already taken" in detail
+    assert "Почта уже зарегистрирована" in detail or "Имя пользователя занято" in detail
 
 
 def test_login_for_access_token(client: TestClient):
@@ -62,7 +62,7 @@ def test_login_wrong_password(client: TestClient):
     wrong_login_data["password"] = "wrongpassword"
     response = client.post("/api/v1/auth/login/token", data=wrong_login_data)
     assert response.status_code == 401, response.text
-    assert "Incorrect username or password" in response.json()["detail"]
+    assert "Неправильное имя пользователя или пароль" in response.json()["detail"]
 
 
 def test_validate_token(client: TestClient):
